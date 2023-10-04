@@ -9,27 +9,8 @@ public class PlayerHealth : MonoBehaviour
     bool iframes;
     int health;
     //public TextMeshPro ugui healthText;
-    
-    void ChangeHeath(int amount)
-    {
-        health += amount;
-        if (health<1)
-        {
-            Death();
-        }
-    }
-    void Death()
-    {
-        //reset health
-        //reset lvl
-    }
 
-    private void OnTriggerEnter(Collider Spikes)
-    {
-        //hit obj
-        {
-            ChangeHeath(-2);
-        }
-    }
+    
+    
 
 }

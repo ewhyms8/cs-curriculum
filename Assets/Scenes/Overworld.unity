@@ -39902,7 +39902,7 @@ GameObject:
   - component: {fileID: 703228635}
   m_Layer: 0
   m_Name: Coins
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84442,7 +84442,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1750497391}
+      addedObject: {fileID: 1750497385}
   m_SourcePrefab: {fileID: 100100000, guid: 34448014912494d33b041af48acd0291, type: 3}
 --- !u!1 &1750497384 stripped
 GameObject:
@@ -84450,7 +84450,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1750497383}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1750497391
+--- !u!114 &1750497385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84459,9 +84459,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1750497384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5edd2a0bdd7ab4e4db826dc686c07dcc, type: 3}
+  m_Script: {fileID: 11500000, guid: c045e710e505144c69e78def217c510b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!4 &1825907749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281311786053241907, guid: 69c7343f050914c7787bbbe42c07b5b8,
