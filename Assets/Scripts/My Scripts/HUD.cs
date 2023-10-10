@@ -10,12 +10,17 @@ public class HUD : MonoBehaviour
 
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
+
+    public int coin;
+    public int health;
     
     void Update()
     {
-        //healthText.text = ("Health: " + health);
-        //coinText.text = ("Coins: " + coin);
-        //coinText.text = CoinManager.coin.ToString();
+        healthText.text = ("Health: " + health);
         //healthText.text = PlayerHealth.health.ToString();
+
+        coinText.text = ("Coins: " + coin);
+        //coinText.text = CoinManager.coin();
+        
     }
 }

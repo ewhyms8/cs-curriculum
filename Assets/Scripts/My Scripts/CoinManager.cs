@@ -5,26 +5,23 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public int coin;
-    void Start()
-    {
-        Debug.Log("This works");
-    }
     // when touch coin
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.tag == "Coin")
+        if (collision.tag == "Player")
         {
             CollectCoin(3);
-            other.gameObject.SetActive(false);
             Debug.Log("Coins: " + coin);
+            gameObject.SetActive(false);
         }
     }
     // for collect coin
     public void CollectCoin(int amount)
     {
-        coin += amount;
+     coin += amount;
     }
 
-    
+
 }
+//done & fixed

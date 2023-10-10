@@ -18,7 +18,7 @@ public class UpDownOpenWorld : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Overworld")
         {
-           ySpeed = 5f;
+           ySpeed = 1f;
         }
         if (scene.name == "Start")
         {
@@ -30,7 +30,7 @@ public class UpDownOpenWorld : MonoBehaviour
     {
         //move up and down
         yDirection = Input.GetAxis("Vertical");
-        yVector = yDirection * walkingSpeed * Time.deltaTime;
+        yVector = ySpeed *yDirection * walkingSpeed * Time.deltaTime;
         xVector = xDirection * walkingSpeed * Time.deltaTime;
         xDirection = Input.GetAxis("Horizontal");
         transform.position = transform.position + new Vector3(xVector, yVector, 0);

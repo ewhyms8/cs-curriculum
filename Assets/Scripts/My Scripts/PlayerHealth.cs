@@ -46,8 +46,8 @@ public class PlayerHealth : MonoBehaviour
     {
         health = 5;
         //reset health
-        //transform.Translate() 
-        //reset lvl
+        transform.position = new Vector3(-0.7f, -0.8f, -2.393815f);
+        //move player back to cave entrance
     }
 
     private void OnTriggerEnter(Collider Spikes)
@@ -55,7 +55,6 @@ public class PlayerHealth : MonoBehaviour
         if (gameObject.tag == "Spikes")
         {
             ChangeHeath(-2);
-            isRunning = true;
             
         }
     }
