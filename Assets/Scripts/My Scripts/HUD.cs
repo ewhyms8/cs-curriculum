@@ -5,22 +5,38 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
+    public static HUD hud;
+    public int coin;
+    public int health;
+    
     public CoinManager coinManager;
     public PlayerHealth playerHealth;
 
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
 
-    public int coin;
-    public int health;
+    void Awake()
+    {
+        if (hud != null && hud != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            hud = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     
     void Update()
     {
-        healthText.text = ("Health: " + health);
-        //healthText.text = PlayerHealth.health.ToString();
-
-        coinText.text = ("Coins: " + coin);
-        //coinText.text = CoinManager.coin();
+        healthText.text = health.ToString();
+        healthText.text = "Health: " + health;
+        
+        
+        coinText.text = coin.ToString();
+        coinText.text = "Coins: " + coin;
+        
         
     }
 }

@@ -1,62 +1,64 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
-    float timer;
-    bool iframes;
-    public int health;
+    public HUD hud;
+    //bool iframes==false;
+    private float timer;
+    float originalTimer;
 
-    public float originalTimer = 1;
-
-    private bool isRunning = false;
-
-    private void Start()
+    void Start()
     {
-        timer = 1;
+        hud = GameObject.FindObjectOfType<HUD>();
+        originalTimer = 1f;
+        timer = originalTimer;
     }
-    //Timer stop and start
-    public void TimerStart()
+
+    void Update()
     {
-        if (isRunning)
-        {
+       // if (iframes)
+        //{
             timer -= Time.deltaTime;
-            isRunning = true;
-        }
+            if (timer < 0)
+            {
+              //  iframes = false;
+                timer = originalTimer;
+            }
+        //}
     }
-    void TimerStop()
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (timer < 0)
+        if (other.gameObject.CompareTag("Spikes"))
         {
-            isRunning = false;
+            //ChangeHealth(amount - 1);
+            transform.position = transform.position + new Vector3(-1f, 1f, 0f);
         }
     }
-    //Health
-    void ChangeHeath(int amount)
+
+    void ChangeHealth(int amount)
     {
-        health += amount;
-        if (health < 1)
+        //if (!iframes)
         {
-            Death();
+           // iframes = true;
+            hud.health += amount;
+            if (hud.health < 1)
+            {
+                Death();
+            }
         }
     }
+
     void Death()
     {
-        health = 5;
-        //reset health
-        transform.position = new Vector3(-0.7f, -0.8f, -2.393815f);
-        //move player back to cave entrance
-    }
-
-    private void OnTriggerEnter(Collider Spikes)
-    {
-        if (gameObject.tag == "Spikes")
-        {
-            ChangeHeath(-2);
-            
-        }
+        //SceneManager.LoadScene
     }
 
 

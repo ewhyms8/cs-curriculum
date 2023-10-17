@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    public int coin;
+    public HUD hud;
     // when touch coin
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Start()
     {
-        if (collision.tag == "Player")
-        {
-            CollectCoin(3);
-            Debug.Log("Coins: " + coin);
-            gameObject.SetActive(false);
-        }
+        hud = GameObject.FindObjectOfType<HUD>();
     }
-    // for collect coin
-    public void CollectCoin(int amount)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-     coin += amount;
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            hud.coin++;
+            other.gameObject.SetActive(false);
+
+        }
     }
 
 
