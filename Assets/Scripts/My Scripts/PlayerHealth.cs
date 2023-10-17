@@ -1,18 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
     public HUD hud;
-    //bool iframes==false;
+    bool iframes = false;
     private float timer;
     float originalTimer;
+    private float xVector;
+    private float yVector;
 
     void Start()
     {
@@ -23,42 +23,47 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-       // if (iframes)
-        //{
+        if (iframes)
+        {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-              //  iframes = false;
+                iframes = false;
                 timer = originalTimer;
             }
-        //}
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Spikes"))
         {
-            //ChangeHealth(amount - 1);
+            ChangeHealth(hud.health - 1);
             transform.position = transform.position + new Vector3(-1f, 1f, 0f);
         }
     }
-
+    // private void OnTriggerEnter2D(Collision2D other)
+    // if(other.gameObject.CompareTag("Potion"))
+    // ChangeHealth(hud.health + 2);
+    
     void ChangeHealth(int amount)
     {
-        //if (!iframes)
+        if (!iframes)
         {
-           // iframes = true;
+            iframes = true;
             hud.health += amount;
             if (hud.health < 1)
             {
                 Death();
             }
         }
+        Debug.Log("Health: " + hud.health);
     }
 
     void Death()
     {
-        //SceneManager.LoadScene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("You Died.");
     }
 
 

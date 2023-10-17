@@ -27,16 +27,18 @@ public class HUD : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    
+
+    void Start()
+    {
+        coin = 0;
+        health = 5;
+    }
     void Update()
     {
-        healthText.text = health.ToString();
         healthText.text = "Health: " + health;
-        
-        
-        coinText.text = coin.ToString();
         coinText.text = "Coins: " + coin;
         
         
     }
 }
+// set coin amount and health amount where???

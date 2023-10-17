@@ -13,9 +13,11 @@ public class CoinManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Interacted");
         if (other.gameObject.CompareTag("Coin"))
         {
-            hud.coin++;
+            hud.coin = hud.coin + 1;
+            Debug.Log("Got coin");
             other.gameObject.SetActive(false);
 
         }
@@ -23,4 +25,4 @@ public class CoinManager : MonoBehaviour
 
 
 }
-//done & fixed
+
