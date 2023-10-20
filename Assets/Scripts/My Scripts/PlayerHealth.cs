@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Spikes"))
         {
-            ChangeHealth(hud.health - 1);
+            ChangeHealth(hud.health - 1); 
             transform.position = transform.position + new Vector3(-1f, 1f, 0f);
         }
     }

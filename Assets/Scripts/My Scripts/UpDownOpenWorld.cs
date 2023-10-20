@@ -14,7 +14,7 @@ public class UpDownOpenWorld : MonoBehaviour
 
     void Start()
     {
-        walkingSpeed = 5f;
+        walkingSpeed = 3f;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Overworld")
         {

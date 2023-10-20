@@ -35,8 +35,8 @@ public class HUD : MonoBehaviour
     }
     void Update()
     {
-        healthText.text = "Health: " + health;
-        coinText.text = "Coins: " + coin;
+       // healthText.text = "Health: " + health;
+        //coinText.text = "Coins: " + coin;
         
         
     }
