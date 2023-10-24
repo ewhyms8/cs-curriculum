@@ -45,6 +45,10 @@ public class PlayerHealth : MonoBehaviour
     // private void OnTriggerEnter2D(Collision2D other)
     // if(other.gameObject.CompareTag("Potion"))
     // ChangeHealth(hud.health + 2);
+
+    //private void OnCollisionEnter2D(Collision2D other)
+    // if other.gameObject.CompareTag("Bullet"))
+    // ChangeHealth(hud.health - 1);
     
     void ChangeHealth(int amount)
     {
