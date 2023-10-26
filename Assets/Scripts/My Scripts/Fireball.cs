@@ -9,7 +9,7 @@ public class Fireball : MonoBehaviour
     public float speed = 2.0f;
     void Start()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -21,11 +21,11 @@ public class Fireball : MonoBehaviour
         //{
 
             // Turret bullet is set active
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
             // Turret bullet goes to player poition on entering feild
             // go to player.position
             // Bullet set active false at point where player was
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
        // }
     }
 }

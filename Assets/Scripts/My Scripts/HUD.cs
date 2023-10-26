@@ -12,8 +12,8 @@ public class HUD : MonoBehaviour
     public CoinManager coinManager;
     public PlayerHealth playerHealth;
 
-    public TextMeshProUGUI coinText;
-    public TextMeshProUGUI healthText;
+    public TMP_Text coinText;
+    public TMP_Text healthText;
 
     void Awake()
     {
@@ -35,10 +35,9 @@ public class HUD : MonoBehaviour
     }
     void Update()
     {
-       // healthText.text = "Health: " + health;
-        //coinText.text = "Coins: " + coin;
         
-        
+        healthText.text = ("Health: " + hud.health);
+        coinText.text = ("Coins: " + hud.coin);
     }
 }
 // set coin amount and health amount where???

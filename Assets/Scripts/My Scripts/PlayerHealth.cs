@@ -13,12 +13,14 @@ public class PlayerHealth : MonoBehaviour
     float originalTimer;
     private float xVector;
     private float yVector;
+    private GameObject potion;
 
     void Start()
     {
         hud = GameObject.FindObjectOfType<HUD>();
         originalTimer = 1f;
         timer = originalTimer;
+        potion = GameObject.Find("HealthPotion");
     }
 
     void Update()
@@ -38,36 +40,46 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Spikes"))
         {
-            ChangeHealth(hud.health - 1); 
-            transform.position = transform.position + new Vector3(-1f, 1f, 0f);
+            ChangeHealth(hud.health -= 2);
+            transform.position = transform.position + new Vector3(0.5f, -0.5f, 0f);
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            ChangeHealth(hud.health -= 1);
+            other.gameObject.SetActive(false);
+            transform.position = transform.position + new Vector3(0.2f, -0.2f, 0f);
+            Debug.Log("Health " + hud.health);
+        }   
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Potion"))
+        {
+            ChangeHealth(hud.health += 2);
+            potion.SetActive(false);
         }
     }
-    // private void OnTriggerEnter2D(Collision2D other)
-    // if(other.gameObject.CompareTag("Potion"))
-    // ChangeHealth(hud.health + 2);
-
-    //private void OnCollisionEnter2D(Collision2D other)
-    // if other.gameObject.CompareTag("Bullet"))
-    // ChangeHealth(hud.health - 1);
     
+
     void ChangeHealth(int amount)
     {
         if (!iframes)
         {
             iframes = true;
-            hud.health += amount;
             if (hud.health < 1)
             {
                 Death();
             }
         }
-        Debug.Log("Health: " + hud.health);
     }
 
     void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("You Died.");
+        hud.health += 5;
+        hud.coin -= 2;
     }
 
 
