@@ -6,33 +6,23 @@ public class TurretDetect : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject fireball;
+    private float speed = 2;
+    private GameObject player;
+    private Vector3 playerpos;
     void Start()
     {
-        fireball = GameObject.Find("Fireball");
         Instantiate(fireball, new Vector3(9.897f, 13.453f, 0f), Quaternion.identity);
-        
+        fireball.SetActive(false);
+        player = GameObject.Find("Player");
+        playerpos = player.GetComponent<Transform>().position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
-    }
-
+    // Update can go here if needed
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player found");
-            if (fireball == null)
-            {
-                Debug.Log("It isn't being called to");
-            }
-            if (fireball != null)
-            {
-                Debug.Log("fireball is real");
-                fireball.SetActive(true);
-            }
+            fireball.SetActive(true);
+            fireball.transform.position = Vector3.MoveTowards(transform.position, playerpos, speed * Time.deltaTime);
         }
     }
 }

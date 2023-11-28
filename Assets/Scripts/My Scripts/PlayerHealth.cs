@@ -60,8 +60,6 @@ public class PlayerHealth : MonoBehaviour
             potion.SetActive(false);
         }
     }
-    
-
     void ChangeHealth(int amount)
     {
         if (!iframes)
@@ -73,7 +71,6 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
     void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -81,6 +78,4 @@ public class PlayerHealth : MonoBehaviour
         hud.health += 5;
         hud.coin -= 2;
     }
-
-
 }
