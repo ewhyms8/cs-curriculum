@@ -50,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
             transform.position = transform.position + new Vector3(0.2f, -0.2f, 0f);
             Debug.Log("Health " + hud.health);
         }   
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

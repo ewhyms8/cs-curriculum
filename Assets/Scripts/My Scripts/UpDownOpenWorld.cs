@@ -15,7 +15,7 @@ public class UpDownOpenWorld : MonoBehaviour
     private GameObject pfireball;
     private GameObject enemy;
     private Vector3 enemypos;
-    private float speed = 2;
+    //private float speed = 2;
 
     void Start()
     {

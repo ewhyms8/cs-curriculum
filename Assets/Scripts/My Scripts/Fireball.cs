@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject player;
+    private 
    
     void Start()
     { 
