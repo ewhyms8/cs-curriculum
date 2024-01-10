@@ -21,7 +21,7 @@ public class EnemyDrop : MonoBehaviour
     void Start()
     {
         orcWithAxe = GameObject.Find("OrcAxe");
-        coin = GameObject.Find("Coins");
+        coin = GameObject.Find("Coin");
         healthPotion = GameObject.Find("HealthPotion");
         enemyPos = orcWithAxe.transform.position;
     }

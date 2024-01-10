@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -59,6 +60,11 @@ public class PlayerHealth : MonoBehaviour
         {
             ChangeHealth(hud.health += 2);
             potion.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //Shoot()
         }
     }
     void ChangeHealth(int amount)

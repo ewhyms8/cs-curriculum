@@ -1,28 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretDetect : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject fireball;
-    private float speed = 2;
-    private GameObject player;
-    private Vector3 playerpos;
+    private float shootCooldown;
+    public float cooldown;
+    private Transform target;
+    public float speed;
     void Start()
     {
-        Instantiate(fireball, new Vector3(9.897f, 13.453f, 0f), Quaternion.identity);
-        fireball.SetActive(false);
-        player = GameObject.Find("Player");
-        playerpos = player.GetComponent<Transform>().position;
+        target = null;
+        speed = 8;
     }
     // Update can go here if needed
+    void Update()
+    {
+        shootCooldown -= Time.deltaTime;
+        if (shootCooldown <= 0)
+        {
+            if (target != null)
+            {
+                print("shoot");
+                //create projectile
+                GameObject clone;
+                clone = Instantiate(fireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+                //var step = speed * Time.deltaTime;
+                //clone.transform.position = Vector3.MoveTowards(clone.transform.position, target.position, step);
+                
+                shootCooldown = cooldown;
+            }
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            fireball.SetActive(true);
-            fireball.transform.position = Vector3.MoveTowards(transform.position, playerpos, speed * Time.deltaTime);
+            print("target acquired");
+            target = other.gameObject.transform;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        print("target lost");
+        target = null;
     }
 }
