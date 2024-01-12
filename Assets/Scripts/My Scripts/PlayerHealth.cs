@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private float xVector;
     private float yVector;
     private GameObject potion;
+    private GameObject PFireball
 
     void Start()
     {
@@ -47,8 +48,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             ChangeHealth(hud.health -= 1);
-            other.gameObject.SetActive(false);
-            transform.position = transform.position + new Vector3(0.2f, -0.2f, 0f);
+            Destroy(other.gameObject);
             Debug.Log("Health " + hud.health);
         }   
         
@@ -64,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //Shoot()
+            Shoot();
         }
     }
     void ChangeHealth(int amount)
@@ -78,11 +78,20 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+
+    void Shoot()
+    {
+        GameObject proj;
+        proj = Instantiate()
+    }
     void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("You Died.");
         hud.health += 5;
-        hud.coin -= 2;
+        if (hud.coin >= 2)
+        {
+            hud.coin -= 2;
+        }
     }
 }
