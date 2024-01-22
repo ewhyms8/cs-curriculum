@@ -12,9 +12,6 @@ public class UpDownOpenWorld : MonoBehaviour
     float yVector;
     float ySpeed;
     
-    private GameObject pfireball;
-    private GameObject enemy;
-    private Vector3 enemypos;
     //private float speed = 2;
 
     void Start()
@@ -29,8 +26,6 @@ public class UpDownOpenWorld : MonoBehaviour
         {
             ySpeed = 0f;
         }
-        //enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        //enemypos = enemy.GetComponent<Transform>().position;
     }
     void Update()
     {
@@ -40,11 +35,6 @@ public class UpDownOpenWorld : MonoBehaviour
         xDirection = Input.GetAxis("Horizontal");
         transform.position = transform.position + new Vector3(xVector, yVector, 0);
         
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-           // pfireball.SetActive(true);
-            //pfireball.transform.position = Vector3.MoveTowards(transform.position, enemypos, speed);
-       // }
     }
     
 

@@ -6,15 +6,17 @@ using UnityEngine;
 public class EnemyDrop : MonoBehaviour
 {
     public GameObject orcWithAxe;
+    private bool timer;
 
     private GameObject coin;
     private GameObject healthPotion;
     private Vector3 enemyPos;
-
-    private int randNum;
-
     private int orcHealth = 3;
 
+    private Transform target;
+    private float speed = 2;
+    
+    private int randNum;
     private float time = 2.0f;
     //private GameObject axe;
     // Start is called before the first frame update
@@ -40,9 +42,12 @@ public class EnemyDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("hit");
-            orcHealth -= 1;
-            Timer();
+            if (timer = false)
+            {
+                Debug.Log("hit");
+                orcHealth -= 1;
+                Timer();
+            }
         }
     }
     void itemDrop()
@@ -64,10 +69,15 @@ public class EnemyDrop : MonoBehaviour
 
     void Timer()
     {
+        if (time > 0)
+        {
+            timer = true;
+        }
+        timer = true;
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            // can be hit
+            timer = false;
         }
     }
 }

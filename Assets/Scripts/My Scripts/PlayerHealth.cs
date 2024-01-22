@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private float xVector;
     private float yVector;
     private GameObject potion;
-    private GameObject PFireball
+    private GameObject PFireball;
 
     void Start()
     {
@@ -64,7 +64,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Shoot(); 
+            }
         }
     }
     void ChangeHealth(int amount)
@@ -82,7 +85,7 @@ public class PlayerHealth : MonoBehaviour
     void Shoot()
     {
         GameObject proj;
-        proj = Instantiate()
+        proj = Instantiate(PFireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
     }
     void Death()
     {
@@ -95,3 +98,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 }
+
+/*
+ LIST WHAT TO DO
+ Player side to side up and down (done)
+ Player jump (done)
+ Enemy move
+ Enemy drop or dead (done)
+ Turret shoot func (done)
+ Player shoot func
+ Orc in contact with turret
+ HUD (done)
+*/

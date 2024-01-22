@@ -27,8 +27,6 @@ public class TurretDetect : MonoBehaviour
                 //create projectile
                 GameObject clone;
                 clone = Instantiate(fireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
-                //var step = speed * Time.deltaTime;
-                //clone.transform.position = Vector3.MoveTowards(clone.transform.position, target.position, step);
                 
                 shootCooldown = cooldown;
             }

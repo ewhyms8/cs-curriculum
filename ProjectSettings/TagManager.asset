@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Bullet
   - Potion
+  - Floor
   layers:
   - Default
   - TransparentFX
