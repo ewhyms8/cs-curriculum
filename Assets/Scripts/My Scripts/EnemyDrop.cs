@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyDrop : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class EnemyDrop : MonoBehaviour
 
     private GameObject coin;
     private GameObject healthPotion;
+    private GameObject axe;
     private Vector3 enemyPos;
     private int orcHealth = 3;
 
@@ -22,10 +25,12 @@ public class EnemyDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orcWithAxe = GameObject.Find("OrcAxe");
+        orcWithAxe = GameObject.Find("MobileEnemy");
         coin = GameObject.Find("Coin");
         healthPotion = GameObject.Find("HealthPotion");
+        //axe = GameObject.
         enemyPos = orcWithAxe.transform.position;
+        target = null;
     }
 
     // Update is called once per frame
@@ -35,6 +40,11 @@ public class EnemyDrop : MonoBehaviour
         {
             orcWithAxe.SetActive(false);
             itemDrop();
+        }
+
+        if (target != null)
+        {
+            FollowPlayer();
         }
     }
 
@@ -49,21 +59,43 @@ public class EnemyDrop : MonoBehaviour
                 Timer();
             }
         }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            orcHealth -= 1;
+            Destroy(other.gameObject);
+        }   
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            target = other.gameObject.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        target = null;
+    }
+
     void itemDrop()
     {
         randNum = Random.Range(0, 3);
         if (randNum == 1)
         {
-            Instantiate(coin, enemyPos, Quaternion.identity);
+            GameObject coinDrop;
+            coinDrop = Instantiate(coin, enemyPos, Quaternion.identity);
         }
         if (randNum == 2)
         {
-            Instantiate(healthPotion, enemyPos, Quaternion.identity);
+            GameObject potionDrop;
+            potionDrop = Instantiate(healthPotion, enemyPos, Quaternion.identity);
         }
         if (randNum == 3)
         {
-            //Instantiate(axe, enemyPos, Quaternion.identity);
+            GameObject axeDrop;
+            axeDrop = Instantiate(axe, enemyPos, Quaternion.identity);
         }
     }
 
@@ -79,5 +111,11 @@ public class EnemyDrop : MonoBehaviour
         {
             timer = false;
         }
+    }
+
+    void FollowPlayer()
+    {
+        var stepp = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, stepp);
     }
 }

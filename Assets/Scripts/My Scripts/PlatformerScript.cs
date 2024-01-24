@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class PlatformerScript : MonoBehaviour
     //jump func
     private Rigidbody2D rb2D;
     public Vector3 jump;
-    public float jumpForce = 2f;
+    public float jumpForce = 3f;
+
+    private float jumpsLeft;
+    private bool canJump;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -24,18 +28,34 @@ public class PlatformerScript : MonoBehaviour
         xVector = xDirection * walkingSpeed * Time.deltaTime;
         xDirection = Input.GetAxis("Horizontal");
         transform.position = transform.position + new Vector3(xVector, 0, 0);
+        if (jumpsLeft <= 0)
+        {
+            canJump = false;
+        }
         
         //jump func
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.5f);
-            if (hit.collider != null)
+            if (canJump = true)
             {
                 //jump
                 rb2D.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+                jumpsLeft -= 1;
             }
-                
+
+            if (canJump = false)
+            {
+                print("not jumping");
+            }
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            print("jumps left: " + jumpsLeft);
+            jumpsLeft = 2;
+        }
+    }
 }

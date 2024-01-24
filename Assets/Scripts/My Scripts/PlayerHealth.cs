@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
  LIST WHAT TO DO
  Player side to side up and down (done)
  Player jump (done)
- Enemy move
+ Enemy move (done)
  Enemy drop or dead (done)
  Turret shoot func (done)
  Player shoot func
