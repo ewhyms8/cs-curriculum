@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private float xVector;
     private float yVector;
     private GameObject potion;
-    private GameObject PFireball;
+    public GameObject PFireball;
 
     void Start()
     {
@@ -36,6 +36,11 @@ public class PlayerHealth : MonoBehaviour
                 timer = originalTimer;
             }
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            print("f key hit");
+            Shoot(); 
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -49,7 +54,6 @@ public class PlayerHealth : MonoBehaviour
         {
             ChangeHealth(hud.health -= 1);
             Destroy(other.gameObject);
-            Debug.Log("Health " + hud.health);
         }   
         
     }
@@ -64,10 +68,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Shoot(); 
-            }
+            // idk
         }
     }
     void ChangeHealth(int amount)
@@ -106,7 +107,12 @@ public class PlayerHealth : MonoBehaviour
  Enemy move (done)
  Enemy drop or dead (done)
  Turret shoot func (done)
- Player shoot func
- Orc in contact with turret
+ Orc in contact with turret (done)
  HUD (done)
+ Player shoot func & invincibility when casting
+ Platformer level
+ List of dead enemies
+ List of coins
+ List of potions & other interactive gameobjects
+ 
 */

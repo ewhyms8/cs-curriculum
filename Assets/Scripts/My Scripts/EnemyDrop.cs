@@ -38,8 +38,7 @@ public class EnemyDrop : MonoBehaviour
     {
         if (orcHealth <= 0)
         {
-            orcWithAxe.SetActive(false);
-            itemDrop();
+            OrcDeath();
         }
 
         if (target != null)
@@ -65,7 +64,7 @@ public class EnemyDrop : MonoBehaviour
             Destroy(other.gameObject);
         }   
     }
-
+// change to stay?
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -117,5 +116,14 @@ public class EnemyDrop : MonoBehaviour
     {
         var stepp = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, stepp);
+    }
+
+    void OrcDeath()
+    {
+        // if last orc?
+        // GameObject = lastDrop;
+        // lastDrop = Instantiate(axe, enemyPos, Quaternion.identity);
+        orcWithAxe.SetActive(false);
+        itemDrop();
     }
 }
