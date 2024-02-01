@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PFireball : MonoBehaviour
 {
-    private float speed = 8;
+    public float speed = 8;
     private Vector3 target;
     
     void Start()

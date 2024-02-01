@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public HUD hud;
     bool iframes = false;
     private float timer;
+    private float timerShot;
     float originalTimer;
     private float xVector;
     private float yVector;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         hud = GameObject.FindObjectOfType<HUD>();
         originalTimer = 1f;
         timer = originalTimer;
+        timerShot = 2f;
         potion = GameObject.Find("HealthPotion");
     }
 
@@ -35,12 +37,15 @@ public class PlayerHealth : MonoBehaviour
                 iframes = false;
                 timer = originalTimer;
             }
+            timerShot -= Time.deltaTime;
+            if (timerShot < 0)
+            {
+                iframes = false;
+                timerShot = 2;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            print("f key hit");
-            Shoot(); 
-        }
+        
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -58,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Potion"))
         {
@@ -68,7 +73,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            // idk
+            if (Input.GetKeyDown(KeyCode.F))
+            { 
+                print("f key hit");
+                Shoot(); 
+            }
         }
     }
     void ChangeHealth(int amount)

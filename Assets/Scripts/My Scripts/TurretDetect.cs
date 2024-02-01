@@ -8,14 +8,7 @@ public class TurretDetect : MonoBehaviour
     public GameObject fireball;
     private float shootCooldown;
     public float cooldown;
-    private Transform target;
-    public float speed;
-    void Start()
-    {
-        target = null;
-        speed = 8;
-    }
-    // Update can go here if needed
+    private Transform target = null;
     void Update()
     {
         shootCooldown -= Time.deltaTime;
@@ -23,8 +16,6 @@ public class TurretDetect : MonoBehaviour
         {
             if (target != null)
             {
-                print("shoot");
-                //create projectile
                 GameObject clone;
                 clone = Instantiate(fireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
                 
@@ -32,18 +23,20 @@ public class TurretDetect : MonoBehaviour
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("target acquired");
             target = other.gameObject.transform;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        print("target lost");
-        target = null;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("target lost");
+            target = null;
+        }
     }
 }

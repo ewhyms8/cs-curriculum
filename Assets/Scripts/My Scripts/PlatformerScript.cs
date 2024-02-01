@@ -32,18 +32,21 @@ public class PlatformerScript : MonoBehaviour
         {
             canJump = false;
         }
+        else
+        {
+            canJump = true;
+        }
         
         //jump func
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (canJump = true)
+            if (canJump == true)
             {
-                //jump
                 rb2D.AddForce(jump * jumpForce, ForceMode2D.Impulse);
                 jumpsLeft -= 1;
             }
 
-            if (canJump = false)
+            if (canJump == false)
             {
                 print("not jumping");
             }
