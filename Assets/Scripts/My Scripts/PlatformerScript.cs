@@ -57,7 +57,6 @@ public class PlatformerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            print("jumps left: " + jumpsLeft);
             jumpsLeft = 2;
         }
     }

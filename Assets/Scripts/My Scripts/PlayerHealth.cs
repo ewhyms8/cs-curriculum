@@ -53,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Spikes"))
         {
             ChangeHealth(hud.health -= 2);
-            transform.position = transform.position + new Vector3(0.5f, -0.5f, 0f);
         }
         if (other.gameObject.CompareTag("Bullet"))
         {
@@ -123,5 +122,7 @@ public class PlayerHealth : MonoBehaviour
  List of dead enemies
  List of coins
  List of potions & other interactive gameobjects
+                    ^
+ Dropping platforms |
  
 */
