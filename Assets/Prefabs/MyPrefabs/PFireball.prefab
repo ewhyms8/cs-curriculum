@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3662789412297943697}
   m_Layer: 0
   m_Name: PFireball
-  m_TagString: Bullet
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67cf996d77d64ad5a0d2929c8caee7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8

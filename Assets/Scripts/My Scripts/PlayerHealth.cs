@@ -59,22 +59,20 @@ public class PlayerHealth : MonoBehaviour
             ChangeHealth(hud.health -= 1);
             Destroy(other.gameObject);
         }   
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
         if (other.gameObject.CompareTag("Potion"))
         {
             ChangeHealth(hud.health += 2);
             potion.SetActive(false);
         }
+        
+    }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (Input.GetKeyDown(KeyCode.F))
             { 
-                print("f key hit");
                 Shoot(); 
             }
         }

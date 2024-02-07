@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class PFireball : MonoBehaviour
     
     void Start()
     {
-        target = GameObject.Find("MobileEnemy").transform.position;
+        
     }
 
     // Update is called once per frame
@@ -22,6 +23,19 @@ public class PFireball : MonoBehaviour
         if (Vector3.Distance(transform.position, target) < 0.001f)
         {
             Destroy(gameObject, 0.1f);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            target = GameObject.Find("MobileEnemy").transform.position;
+        }
+
+        if (other.gameObject.CompareTag("Turret"))
+        {
+            target = GameObject.Find("Turret").transform.position;
         }
     }
 }

@@ -58,7 +58,7 @@ public class EnemyDrop : MonoBehaviour
                 Timer();
             }
         }
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("PlayerBullet"))
         {
             orcHealth -= 1;
             Destroy(other.gameObject);
