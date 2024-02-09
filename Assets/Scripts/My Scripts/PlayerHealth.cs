@@ -122,5 +122,7 @@ public class PlayerHealth : MonoBehaviour
  List of potions & other interactive gameobjects
                     ^
  Dropping platforms |
+ Gain keys and interactive objects
+ If player coin -> 30 add 1 jump
  
 */
