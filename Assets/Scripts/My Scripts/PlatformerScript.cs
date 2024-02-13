@@ -14,8 +14,10 @@ public class PlatformerScript : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 3f;
 
-    private float jumpsLeft;
+    private float jumpsLeft = 2;
     private bool canJump;
+    
+    public bool Switch = false;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -25,6 +27,7 @@ public class PlatformerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if coin amount >= 30 jumpsLeft += 1;
         xVector = xDirection * walkingSpeed * Time.deltaTime;
         xDirection = Input.GetAxis("Horizontal");
         transform.position = transform.position + new Vector3(xVector, 0, 0);
@@ -57,7 +60,11 @@ public class PlatformerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            jumpsLeft = 2;
+            jumpsLeft = jumpsLeft;
+        }
+        if (other.gameObject.CompareTag("Switch"))
+        {
+            Switch = true;
         }
     }
 }

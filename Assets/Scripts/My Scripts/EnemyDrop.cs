@@ -114,8 +114,8 @@ public class EnemyDrop : MonoBehaviour
 
     void FollowPlayer()
     {
-        var stepp = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, stepp);
+        var step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 
     void OrcDeath()

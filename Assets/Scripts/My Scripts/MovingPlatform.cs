@@ -1,48 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MovingPlatform : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
     private float speed = 2;
-    private bool direction = false;
-
-    private Vector3 endPosition = new Vector3(15.41f, -0.52f, 0);
-    private Vector3 startPosition = new Vector3(9.54f, -0.52f, 0);
-    void Start()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-        transform.position = startPosition;
-        
-    }
+    private Vector3 target;
 
     void Update()
     {
-        if (rb2d.position.x >= 9.54f)
+        var step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target, step);
+        
+        if (gameObject.transform.position.x <= 10.13f)
         {
-            direction = false;
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-            
+            target = new Vector3(15.91f, -0.5f, 0);
         }
-        if (rb2d.position.x <= 15.41f)
+
+        if (gameObject.transform.position.x >= 14.91f)
         {
-            direction = true;
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
-            //print("at end");
-        }
-        else 
-        {
-            if (direction = false)
-            {
-                transform.Translate(Vector3.right * Time.deltaTime * speed);
-            }
-            if (direction = true)
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * speed);
-            }
+            target = new Vector3(9.13f, -0.5f, 0);
         }
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - Floor
   - PlayerBullet
   - Turret
+  - Switch
   layers:
   - Default
   - TransparentFX

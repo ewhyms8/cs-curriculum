@@ -124,5 +124,6 @@ public class PlayerHealth : MonoBehaviour
  Dropping platforms |
  Gain keys and interactive objects
  If player coin -> 30 add 1 jump
+ Fix moving platform (w/ swtich)
  
 */
