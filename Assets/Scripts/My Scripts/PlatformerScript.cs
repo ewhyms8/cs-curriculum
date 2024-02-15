@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlatformerScript : MonoBehaviour
 {
+    public HUD hud;
     // Start is called before the first frame update
     private float xDirection;
     private float xVector;
@@ -20,6 +21,7 @@ public class PlatformerScript : MonoBehaviour
     public bool Switch = false;
     void Start()
     {
+        hud = GameObject.FindObjectOfType<HUD>();
         rb2D = GetComponent<Rigidbody2D>();
         jump = new Vector3(0, 2f, 0);
     }
@@ -27,7 +29,6 @@ public class PlatformerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if coin amount >= 30 jumpsLeft += 1;
         xVector = xDirection * walkingSpeed * Time.deltaTime;
         xDirection = Input.GetAxis("Horizontal");
         transform.position = transform.position + new Vector3(xVector, 0, 0);
@@ -60,7 +61,14 @@ public class PlatformerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            jumpsLeft = jumpsLeft;
+            if (jumpsLeft == 1)
+            {
+                jumpsLeft += 1;
+            }
+            else if(jumpsLeft == 0)
+            {
+                jumpsLeft += 2;
+            }
         }
         if (other.gameObject.CompareTag("Switch"))
         {

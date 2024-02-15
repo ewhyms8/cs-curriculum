@@ -9,7 +9,6 @@ public class MovingPlatform : MonoBehaviour
 {
     private float speed = 2;
     private Vector3 target;
-
     void Update()
     {
         var step = speed * Time.deltaTime;

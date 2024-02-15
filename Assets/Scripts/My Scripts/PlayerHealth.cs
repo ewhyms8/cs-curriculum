@@ -44,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
                 timerShot = 2;
             }
         }
+
         
         
     }
@@ -115,15 +116,12 @@ public class PlayerHealth : MonoBehaviour
  Turret shoot func (done)
  Orc in contact with turret (done)
  HUD (done)
+ Fix moving platform (w/ swtich) (done)
  Player shoot func & invincibility when casting
  Platformer level
  List of dead enemies
  List of coins
  List of potions & other interactive gameobjects
-                    ^
- Dropping platforms |
  Gain keys and interactive objects
- If player coin -> 30 add 1 jump
- Fix moving platform (w/ swtich)
  
 */

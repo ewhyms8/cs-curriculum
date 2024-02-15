@@ -7,20 +7,19 @@ public class MovingUp : MonoBehaviour
 {
     private float speed = 2;
     private Vector3 target;
-    //private bool Switch;
+    public PlatformerScript platformerScript;
 
     void Start()
     {
-        //Switch = GameObject.Find("Player").GetComponent<PlatformerScript>().Switch;
+        platformerScript = GameObject.FindObjectOfType<PlatformerScript>();
     }
     void Update()
     {
         var step = speed * Time.deltaTime;
-        //if (Switch == true)
-        
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-        
-
+        if (platformerScript.Switch == true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+        }
         if (gameObject.transform.position.y >= 4.46f)
         {
             target = new Vector3(-0.993f, -2.94f, 0);
