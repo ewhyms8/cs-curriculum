@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretDetect : MonoBehaviour
-{
+public class BossScript : MonoBehaviour {
+    
     public GameObject fireball;
     private float shootCooldown;
     public float cooldown;
     private Transform target = null;
+    private float bossHealth = 15;
     void Update()
     {
         shootCooldown -= Time.deltaTime;
@@ -17,7 +18,7 @@ public class TurretDetect : MonoBehaviour
             if (target != null)
             {
                 GameObject clone;
-                clone = Instantiate(fireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+                clone = Instantiate(fireball, transform.position + new Vector3(0.5f, 0, 0), transform.rotation);
                 
                 shootCooldown = cooldown;
             }
@@ -28,10 +29,10 @@ public class TurretDetect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            //take damage?
+            bossHealth -= 1;
         }
     }
-
+    
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

@@ -11,19 +11,18 @@ public class PlayerHealth : MonoBehaviour
     public HUD hud;
     bool iframes = false;
     private float timer;
-    private float timerShot;
-    float originalTimer;
+    public float originalTimer = 1f;
     private float xVector;
     private float yVector;
     private GameObject potion;
-    public GameObject PFireball;
+    
+    public GameObject pFireball;
+    private float timerShot = 2f;
 
     void Start()
     {
         hud = GameObject.FindObjectOfType<HUD>();
-        originalTimer = 1f;
         timer = originalTimer;
-        timerShot = 2f;
         potion = GameObject.Find("HealthPotion");
     }
 
@@ -93,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
     void Shoot()
     {
         GameObject proj;
-        proj = Instantiate(PFireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+        proj = Instantiate(pFireball, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
     }
     void Death()
     {

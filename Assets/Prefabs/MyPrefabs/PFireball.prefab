@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 466957844187561919}
   - component: {fileID: -3662789412297943697}
   m_Layer: 0
-  m_Name: PFireball
+  m_Name: pFireball
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
