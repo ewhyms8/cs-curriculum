@@ -10,7 +10,7 @@ public class PFireball : MonoBehaviour
     
     void Start()
     {
-        
+        target = GameObject.Find("MobileEnemy").transform.position;
     }
 
     // Update is called once per frame
@@ -25,17 +25,13 @@ public class PFireball : MonoBehaviour
             Destroy(gameObject, 0.1f);
         }
     }
-
+ /*
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             target = GameObject.Find("MobileEnemy").transform.position;
         }
-
-        if (other.gameObject.CompareTag("Turret"))
-        {
-            target = GameObject.Find("Turret").transform.position;
-        }
     }
+    */
 }

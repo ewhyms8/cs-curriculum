@@ -7,7 +7,7 @@ public class TurretDetect : MonoBehaviour
 {
     public GameObject fireball;
     private float shootCooldown;
-    public float cooldown;
+    public float cooldown = 2f;
     private Transform target = null;
     void Update()
     {

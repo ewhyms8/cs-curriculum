@@ -14,6 +14,7 @@ TagManager:
   - PlayerBullet
   - Turret
   - Switch
+  - Key
   layers:
   - Default
   - TransparentFX

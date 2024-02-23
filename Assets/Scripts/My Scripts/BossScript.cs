@@ -18,7 +18,7 @@ public class BossScript : MonoBehaviour {
             if (target != null)
             {
                 GameObject clone;
-                clone = Instantiate(fireball, transform.position + new Vector3(0.5f, 0, 0), transform.rotation);
+                clone = Instantiate(fireball, transform.position + new Vector3(2f, 0, 0), transform.rotation);
                 
                 shootCooldown = cooldown;
             }

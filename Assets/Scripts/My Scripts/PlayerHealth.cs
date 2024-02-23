@@ -116,11 +116,12 @@ public class PlayerHealth : MonoBehaviour
  Orc in contact with turret (done)
  HUD (done)
  Fix moving platform (w/ swtich) (done)
- Player shoot func & invincibility when casting
- Platformer level
+ Player shoot func & invincibility when casting (done)
+ Platformer level (done?)
  List of dead enemies
  List of coins
  List of potions & other interactive gameobjects
- Gain keys and interactive objects
+ Gain keys and interactive objects (almost)
+  - Make walls and objects player can collide with + have key to unlock
  
 */

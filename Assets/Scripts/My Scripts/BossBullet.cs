@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Fireball : MonoBehaviour
+public class BossBullet : MonoBehaviour
 {
-    public float speed = 8;
+    private float speed = 8;
     public Vector3 target;
-    
+    // Start is called before the first frame update
     void Start()
     {
-        if (target != null)
-        {
-            target = GameObject.Find("Player").transform.position;
-        }
+        target = GameObject.FindObjectOfType<Fireball>().target;
     }
 
     // Update is called once per frame

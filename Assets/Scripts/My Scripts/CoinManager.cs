@@ -20,6 +20,12 @@ public class CoinManager : MonoBehaviour
             other.gameObject.SetActive(false);
 
         }
+
+        if (other.gameObject.CompareTag("Key"))
+        {
+            hud.key = hud.key + 1;
+            other.gameObject.SetActive(false);
+        }
     }
 
 

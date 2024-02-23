@@ -10,9 +10,9 @@ public class EnemyDrop : MonoBehaviour
     public GameObject orcWithAxe;
     private bool timer;
 
-    private GameObject coin;
-    private GameObject healthPotion;
-    private GameObject axe;
+    public GameObject coin;
+    public GameObject healthPotion;
+    public GameObject axe;
     private Vector3 enemyPos;
     private int orcHealth = 3;
 
@@ -26,9 +26,6 @@ public class EnemyDrop : MonoBehaviour
     void Start()
     {
         orcWithAxe = GameObject.Find("MobileEnemy");
-        coin = GameObject.Find("Coin");
-        healthPotion = GameObject.Find("HealthPotion");
-        //axe = GameObject.
         enemyPos = orcWithAxe.transform.position;
         target = null;
     }
