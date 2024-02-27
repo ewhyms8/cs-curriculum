@@ -5,7 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - hud: {instanceID: 0}
-  - PFireball: {instanceID: 0}
+  - pFireball: {fileID: 1972347656021924074, guid: b40487b4ef38e4f95afb5fb86fec4e27,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -6,6 +6,10 @@ MonoImporter:
   defaultReferences:
   - orcWithAxe: {fileID: 3736838050167469039, guid: fbdc99957549444bfba281e61d9d218c,
       type: 3}
+  - coin: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  - healthPotion: {fileID: 8753963983689537738, guid: 0b09c72b8dc784ff4b9aa5abbf598c54,
+      type: 3}
+  - axe: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
