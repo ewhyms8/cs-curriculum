@@ -8,10 +8,15 @@ public class PFireball : MonoBehaviour
     public float speed = 8;
     private Vector3 target;
     
+    /*
     void Start()
     {
-        target = GameObject.Find("MobileEnemy").transform.position;
+        if (target != null)
+        {
+            target = GameObject.Find("MobileEnemy").transform.position;
+        }
     }
+    */
 
     // Update is called once per frame
     void Update()
@@ -25,13 +30,17 @@ public class PFireball : MonoBehaviour
             Destroy(gameObject, 0.1f);
         }
     }
- /*
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             target = GameObject.Find("MobileEnemy").transform.position;
         }
+        
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            target = GameObject.Find("Boss").transform.position;
+        }
     }
-    */
+    
 }

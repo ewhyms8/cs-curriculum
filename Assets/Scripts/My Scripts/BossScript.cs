@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BossScript : MonoBehaviour {
@@ -10,6 +11,12 @@ public class BossScript : MonoBehaviour {
     public float cooldown;
     private Transform target = null;
     private float bossHealth = 15;
+    private GameObject boss;
+
+    void Start()
+    {
+        boss = GameObject.Find("Boss");
+    }
     void Update()
     {
         shootCooldown -= Time.deltaTime;
@@ -18,10 +25,15 @@ public class BossScript : MonoBehaviour {
             if (target != null)
             {
                 GameObject clone;
-                clone = Instantiate(fireball, transform.position + new Vector3(2f, 0, 0), transform.rotation);
+                clone = Instantiate(fireball, transform.position + new Vector3(0, 2f, 0), transform.rotation);
                 
                 shootCooldown = cooldown;
             }
+        }
+
+        if (bossHealth <= 0)
+        {
+            Death();
         }
     }
 
@@ -48,5 +60,9 @@ public class BossScript : MonoBehaviour {
             print("target lost");
             target = null;
         }
+    }
+    void Death()
+    {
+        boss.SetActive(false);
     }
 }

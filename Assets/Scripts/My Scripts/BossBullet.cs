@@ -5,11 +5,18 @@ using UnityEngine;
 public class BossBullet : MonoBehaviour
 {
     private float speed = 8;
-    public Vector3 target;
-    // Start is called before the first frame update
+    private Vector3 target;
     void Start()
     {
-        target = GameObject.FindObjectOfType<Fireball>().target;
+        if (target != null)
+        {
+            target = GameObject.Find("Player").transform.position;
+            print("target position: " + target);
+        }
+        else
+        {
+            print("no position found, target = null");
+        }
     }
 
     // Update is called once per frame

@@ -15,6 +15,7 @@ TagManager:
   - Turret
   - Switch
   - Key
+  - Boss
   layers:
   - Default
   - TransparentFX
